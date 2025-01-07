@@ -16,7 +16,7 @@ const AssignedExpanded = () => {
   useEffect(() => {
     const fetchJobDetails = async () => {
       try {
-        const response = await fetch(`http://127.0.0.1:5000/jobcards/${jobId}/details`);
+        const response = await fetch(`http://api.railway.internal:5000/jobcards/${jobId}/details`);
         if (!response.ok) {
           throw new Error("Failed to fetch job details");
         }
@@ -34,7 +34,7 @@ const AssignedExpanded = () => {
   const handleSaveDiagnostic = async () => {
     setIsSaving(true);
     try {
-      const response = await fetch(`http://127.0.0.1:5000/jobcards/${jobId}/update`, {
+      const response = await fetch(`http://api.railway.internal:5000/jobcards/${jobId}/update`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ const AssignedExpanded = () => {
 
   const handleSubmitForApproval = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:5000/jobcards/${jobId}/status`, {
+      const response = await fetch(`http://api.railway.internal:5000/jobcards/${jobId}/status`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

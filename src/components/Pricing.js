@@ -12,7 +12,7 @@ const Pricing = () => {
     const fetchJobCards = async () => {
       try {
         const response = await fetch(
-          `http://127.0.0.1:5000/jobcards?status=Pricing`
+          `http://api.railway.internal:5000/jobcards?status=Pricing`
         );
 
         if (!response.ok) {

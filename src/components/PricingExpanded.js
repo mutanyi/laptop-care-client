@@ -12,7 +12,7 @@ const PricingExpanded = () => {
   useEffect(() => {
     const fetchJobDetails = async () => {
       try {
-        const response = await fetch(`http://127.0.0.1:5000/jobcards/${jobId}/details`);
+        const response = await fetch(`http://api.railway.internal:5000/jobcards/${jobId}/details`);
         if (!response.ok) {
           throw new Error("Failed to fetch job details");
         }

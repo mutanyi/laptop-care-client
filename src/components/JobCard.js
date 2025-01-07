@@ -41,7 +41,7 @@ const JobCard = () => {
   // Function to fetch all users with the role of technician
   const fetchTechnicians = useCallback(async () => {
     try {
-      const response = await fetch("http://127.0.0.1:5000/users/technicians");
+      const response = await fetch("http://api.railway.internal:5000/users/technicians");
       const technicians = await response.json();
       if (response.ok) {
         setTechnicians(technicians);
@@ -60,7 +60,7 @@ const JobCard = () => {
 
   const onClientPhoneBlur = async (phone) => {
     try {
-      const response = await fetch(`http://127.0.0.1:5000/clients/search?phone_number=${phone}`);
+      const response = await fetch(`http://api.railway.internal:5000/clients/search?phone_number=${phone}`);
       if (response.ok) {
         const data = await response.json();
         if (data.message === "Client not found") {
@@ -78,7 +78,7 @@ const JobCard = () => {
 
   const onDeviceSerialNumberBlur = async (serialNumber) => {
     try {
-      const response = await fetch(`http://127.0.0.1:5000/devices/search?device_serial_number=${serialNumber}`);
+      const response = await fetch(`http://api.railway.internal:5000/devices/search?device_serial_number=${serialNumber}`);
       if (response.ok) {
         const data = await response.json();
         if (data.message === "Device not found") {
@@ -100,7 +100,7 @@ const JobCard = () => {
       const clientId = existingClient ? existingClient.id : await createClient(values);
       const deviceId = deviceExists ? deviceExists.id : await createDevice(values, clientId);
 
-      const jobCardResponse = await fetch("http://127.0.0.1:5000/jobcards", {
+      const jobCardResponse = await fetch("http://api.railway.internal:5000/jobcards", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -155,7 +155,7 @@ const JobCard = () => {
   };
 
   const createClient = async (values) => {
-    const clientResponse = await fetch("http://127.0.0.1:5000/clients", {
+    const clientResponse = await fetch("http://api.railway.internal:5000/clients", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -173,7 +173,7 @@ const JobCard = () => {
   };
 
   const createDevice = async (values, clientId) => {
-    const deviceResponse = await fetch("http://127.0.0.1:5000/devices", {
+    const deviceResponse = await fetch("http://api.railway.internal:5000/devices", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
