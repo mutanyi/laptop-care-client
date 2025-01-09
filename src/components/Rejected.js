@@ -12,7 +12,7 @@ const Rejected = () => {
   useEffect(() => {
     const fetchRejectedJobCards = async () => {
       try {
-        const response = await fetch("http://api.railway.internal:5000/jobcards?status=Rejected");
+        const response = await fetch("${process.env.REACT_APP_API_ENDPOINT}/jobcards?status=Rejected");
         if (!response.ok) {
           throw new Error("Failed to fetch rejected job cards");
         }

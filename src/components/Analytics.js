@@ -34,7 +34,8 @@ const Analytics = () => {
     const fetchJobCards = async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://api.railway.internal:5000/jobcards");
+        const response = await fetch("${process.env.REACT_APP_API_ENDPOINT}/jobcards");
+        // --oldapi.railway.internal/jobcards
         if (!response.ok) {
           throw new Error("Failed to fetch job cards");
         }

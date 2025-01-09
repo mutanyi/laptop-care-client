@@ -20,8 +20,7 @@ const Assigned = () => {
           return;
         }
 
-        const response = await fetch(
-          `http://api.railway.internal:5000/jobcards?status=Assigned&assigned_technician_id=${technicianId}`
+        const response = await fetch(`https://api.railway.internal/jobcards?status=Assigned&assigned_technician_id=${technicianId}`
         );
 
         if (!response.ok) {

@@ -27,7 +27,7 @@ const Signup = () => {
     }),
     onSubmit: async (values) => {
       try {
-        const response = await fetch('http://api.railway.internal:5000/users', {
+        const response = await fetch('${process.env.REACT_APP_API_ENDPOINT}/users', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

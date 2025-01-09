@@ -19,7 +19,7 @@ const Pending = () => {
         }
 
         const response = await fetch(
-          `http://api.railway.internal:5000/jobcards?status=Pending`
+          `${process.env.REACT_APP_API_ENDPOINT}/jobcards?status=Pending`
         );
 
         if (!response.ok) {

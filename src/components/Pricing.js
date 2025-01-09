@@ -12,7 +12,7 @@ const Pricing = () => {
     const fetchJobCards = async () => {
       try {
         const response = await fetch(
-          `http://api.railway.internal:5000/jobcards?status=Pricing`
+          `${process.env.REACT_APP_API_ENDPOINT}/jobcards?status=Pricing`
         );
 
         if (!response.ok) {

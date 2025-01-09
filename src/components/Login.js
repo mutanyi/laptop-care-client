@@ -19,9 +19,9 @@ const Login = () => {
     }),
     onSubmit: async (values) => {
       try {
-        console.log('Logging in with username:', values.username);
+        // console.log('Logging in with username:', values.username);
 
-        const response = await fetch('http://api.railway.internal:5000/users/login', {
+        const response = await fetch(`${process.env.REACT_APP_API_ENDPOINT}/users/login`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ const Login = () => {
         }
 
         const data = await response.json();
-        console.log('Login success:', data);
+        // console.log('Login success:', data);
 
         // Assuming the backend returns user_id, username, role, and access_token in the response
         const { access_token, id, username, role } = data;

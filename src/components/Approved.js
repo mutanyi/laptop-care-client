@@ -21,7 +21,7 @@ const Approved = () => {
         }
 
         const response = await fetch(
-          `http://api.railway.internal:5000/jobcards?status=Approved&assigned_technician_id=${technicianId}`
+          `${process.env.REACT_APP_API_ENDPOINT}/jobcards?status=Approved&assigned_technician_id=${technicianId}`
         );
 
         if (!response.ok) {

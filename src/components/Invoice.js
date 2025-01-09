@@ -17,7 +17,7 @@ const Invoice = () => {
   useEffect(() => {
     const fetchJobDetails = async () => {
       try {
-        const response = await fetch(`http://api.railway.internal:5000/jobcards/${jobId}/details`);
+        const response = await fetch(`${process.env.REACT_APP_API_ENDPOINT}/jobcards/${jobId}/details`);
         if (!response.ok) {
           throw new Error("Failed to fetch job details");
         }
@@ -74,7 +74,7 @@ const Invoice = () => {
       };
 
       // Send invoice data to the server
-      const response = await fetch('http://api.railway.internal:5000/jobcards/generate-invoice', {
+      const response = await fetch('${process.env.REACT_APP_API_ENDPOINT}/jobcards/generate-invoice', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -88,7 +88,7 @@ const Invoice = () => {
       }
 
       // Update jobcard status to Completed
-      const updateResponse = await fetch(`http://api.railway.internal:5000/jobcards/${jobId}/update`, {
+      const updateResponse = await fetch(`${process.env.REACT_APP_API_ENDPOINT}/jobcards/${jobId}/update`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
